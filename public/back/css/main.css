@@ -1,0 +1,11 @@
+th > a {
+    font-size: 20px;
+}
+
+.page-wrapper.mt-3.col-md-10 {
+    padding-left: 40px;
+}
+
+.img-100px{
+    width: 100px;
+}

@@ -2,6 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckLanguage;
+use App\Http\Middleware\IsBlocked;
+use App\Http\Middleware\PermissionLinks;
+use App\Http\Middleware\setLocale;
+use App\Http\Middleware\UnDeletedUser;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,5 +69,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'locale'=>setLocale::class,
+        'is_blocked'=>IsBlocked::class,
+        'un_deleted_user'=>UnDeletedUser::class,
+        'permission_links'=>PermissionLinks::class,
+        'check_language'=>CheckLanguage::class,
     ];
 }
