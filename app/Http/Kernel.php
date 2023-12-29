@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckApiKey;
 use App\Http\Middleware\CheckLanguage;
 use App\Http\Middleware\IsBlocked;
 use App\Http\Middleware\PermissionLinks;
@@ -74,5 +75,6 @@ class Kernel extends HttpKernel
         'un_deleted_user'=>UnDeletedUser::class,
         'permission_links'=>PermissionLinks::class,
         'check_language'=>CheckLanguage::class,
+        'check_api'=>CheckApiKey::class,
     ];
 }

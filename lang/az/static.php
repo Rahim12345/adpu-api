@@ -39,5 +39,6 @@ return [
     'scientific_council' => 'Elmi-şura',
     'structure' => 'Struktur',
     'language' => 'Dil',
+    'access_denied' => 'Giriş qadağandır',
 
 ];

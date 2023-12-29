@@ -19,7 +19,7 @@ class HomeAboutResource extends JsonResource
             'title_1'=>$this->title_1,
             'title_2'=>$this->title_2,
             'intro_text'=>$this->intro_text,
-            'src'=>$this->src,
+            'src'=>asset($this->src),
             'alt'=>$this->alt,
             'icon'=>$this->icon,
         ];

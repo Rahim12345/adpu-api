@@ -13,7 +13,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['prefix' => 'home','middleware' => ['check_language']],function (){
+Route::group(['prefix' => 'home','middleware' => ['check_api','check_language']],function (){
     Route::get('home-banner',[HomeBannerController::class,'show'])->name('home-banner.show');
     Route::get('home-about',[HomeAboutController::class,'show'])->name('home-about.show');
     Route::get('home-about/chronologies',[ChronologyController::class,'show'])->name('chronology.show');
