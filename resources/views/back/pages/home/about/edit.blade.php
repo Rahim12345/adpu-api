@@ -44,7 +44,7 @@
                             </div>
                             <div class="mb-3 col-md-4">
                                 <label class="form-label" for="icon">@lang('pages/home/about.icon')</label>
-                                <input type="text" id="icon" class="form-control" name="icon" placeholder="@lang('pages/home/about.icon')" value="{{ old('title_2',$homeAbout ? $homeAbout->title_2 : '') }}">
+                                <input type="text" id="icon" class="form-control" name="icon" placeholder="@lang('pages/home/about.icon')" value="{{ old('icon',$homeAbout ? $homeAbout->icon : '') }}">
                                 @error('icon')
                                 <small class="text-danger mt-1">{{ $message }}</small>
                                 @enderror
@@ -65,17 +65,16 @@
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label" for="intro_text">@lang('pages/home/about.intro_text')</label>
-                                <textarea name="intro_text" placeholder="@lang('pages/home/about.intro_text')" id="intro_text" cols="30" rows="4" class="form-control @error('intro_text') is-invalid @enderror"></textarea>
+                                <textarea name="intro_text" placeholder="@lang('pages/home/about.intro_text')" id="intro_text" cols="30" rows="4" class="form-control @error('intro_text') is-invalid @enderror">{{ old('intro_text',$homeAbout ? $homeAbout->intro_text : '') }}</textarea>
                                 @error('intro_text')
                                 <small class="text-danger mt-1">{{ $message }}</small>
                                 @enderror
                             </div>
                             <div class="mb-3 col-md-12">
                                 <label class="form-label" for="language_id">@lang('static.language')</label>
-                                <select name="language_id" id="language_id" class="form-control @error('language_id') is-invalid @enderror">
-                                    <option value="">@lang('static.choose_one')</option>
+                                <select name="language_id" id="language_id" class="form-control @error('language_id') is-invalid @enderror" onchange="window.location.href='/admin/pages/home/home-about/1/edit?language_id='+$(this).val()">
                                     @foreach($languages as $language)
-                                        <option value="{{ $language->id }}" @selected(old('language_id', $homeAbout ? $homeAbout->language_id : '') == $language->id)>{{ $language->language }}</option>
+                                        <option value="{{ $language->id }}" @selected(old('language_id', request('language_id')) == $language->id)>{{ $language->language }}</option>
                                     @endforeach
                                 </select>
 

@@ -54,7 +54,7 @@ class HomeAboutController extends Controller
      */
     public function edit()
     {
-        $home_about = HomeAbout::whereId(1)->first();
+        $home_about = HomeAbout::where('language_id',request('language_id'))->first();
         return view('back.pages.home.about.edit', [
             'homeAbout' => $home_about,
             'languages'=>SystemLanguage::all()
@@ -66,7 +66,7 @@ class HomeAboutController extends Controller
      */
     public function update(UpdateHomeAboutRequest $request)
     {
-        $homeAbout = HomeAbout::whereId(1)->first();
+        $homeAbout = HomeAbout::where('language_id',request('language_id'))->first();
         $path   = 'files/home/about/';
         $src    = $this->fileUpdate($homeAbout ? $homeAbout->src : null, $request->hasFile('src'), $request->src, $path);
 
@@ -98,7 +98,7 @@ class HomeAboutController extends Controller
         }
 
         toastr()->success(__('static.data_added_successfully'), __('static.super'));
-        return redirect()->route('home-about.edit', ['home_about'=>1]);
+        return redirect()->back();
     }
 
     /**

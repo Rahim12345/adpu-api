@@ -119,7 +119,7 @@
                             </a>
                             <div class="dropdown-menu {{ request()->segment(2) == 'pages' && request()->segment(3) == 'home' ? 'show' : '' }}">
                                 <a href="{{ route('home-banner.index') }}" class="dropdown-item text-wrap">@lang('static.banner')</a>
-                                <a href="{{ route('home-about.edit',['home_about'=>1]) }}" class="dropdown-item text-wrap">@lang('static.about')</a>
+                                <a href="{{ route('home-about.edit',['home_about'=>1,'language_id'=>1]) }}" class="dropdown-item text-wrap">@lang('static.about')</a>
                                 <a href="{{ route('home-faq.index') }}" class="dropdown-item text-wrap">@lang('static.faq')</a>
                                 <a href="{{ route('home-special-program.index') }}" class="dropdown-item text-wrap">@lang('static.special_programs')</a>
                             </div>
